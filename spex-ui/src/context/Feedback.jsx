@@ -7,7 +7,7 @@ const FeedbackProvider = ({ children }) => {
 
     const fetchFeedbackData = async () => {
         try {
-            const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/feedback`, {
+            const response = await fetch(`https://spex-api.onrender.com/api/feedback`, {
                 credentials: 'include'
             });
             const data = await response.json();

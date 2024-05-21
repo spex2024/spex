@@ -10,7 +10,7 @@ const UserProvider = ({ children }) => {
 
     const fetchUserData = async () => {
         try {
-            const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/user`, {
+            const response = await fetch(`https://spex-api.onrender.com/api/user`, {
                 credentials: 'include',
             });
 
@@ -33,7 +33,7 @@ const UserProvider = ({ children }) => {
 
     const login = async (username, password) => {
         try {
-            const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/login`, {
+            const response = await fetch(`https://spex-api.onrender.com/api/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -59,7 +59,7 @@ const UserProvider = ({ children }) => {
 
     const logout = async () => {
         try {
-            const response = await fetch('http://localhost:5000/api/logout', {
+            const response = await fetch('https://spex-api.onrender.com/api/logout', {
                 method: 'POST',
                 credentials: 'include',
             });
