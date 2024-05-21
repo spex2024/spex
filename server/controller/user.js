@@ -108,7 +108,6 @@ export const users = async (req, res) => {
 
 
 
-
 export const logout = async (req, res) => {
     try {
         // Clear the token cookie
