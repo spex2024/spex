@@ -33,7 +33,7 @@ const UserProvider = ({ children }) => {
 
     const login = async (username, password) => {
         try {
-            const response = await fetch('https://spex-drab.vercel.app/api/login', {
+            const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
