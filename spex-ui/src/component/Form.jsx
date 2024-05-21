@@ -29,7 +29,7 @@ const FormModal = () => {
         e.preventDefault();
 
         try {
-            const response = await fetch('http://localhost:5000/api/feedback', { // Make sure this URL matches your backend endpoint
+            const response = await fetch('https://spex.onrender.com/api/feedback', { // Make sure this URL matches your backend endpoint
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
