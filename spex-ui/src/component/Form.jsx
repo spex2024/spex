@@ -39,9 +39,11 @@ const FormModal = () => {
 
             console.log(formData);
             if (response.ok) {
+                const data = response.json()
                 setFormData(initialFormData);
                 setIsOpen(false);
                 setIsThankYouVisible(true);
+                console.log(data)
             } else {
                 toast.error(`Failed to submit form data: ${response.statusText}`);
             }
