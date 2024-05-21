@@ -12,7 +12,7 @@ dotenv.config()
 
 const app = express();
 app.use(cors({
-    origin: 'https://spex-africa.vercel.app',
+    origin: 'https://spex.onrender.com,
     credentials :true
 }));
 app.use(express.json())
