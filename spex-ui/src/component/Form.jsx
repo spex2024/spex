@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import {toast} from "react-toastify";
 
 const FormModal = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -29,7 +30,7 @@ const FormModal = () => {
         e.preventDefault();
 
         try {
-            const response = await fetch('https://spex.onrender.com/api/feedback', { // Make sure this URL matches your backend endpoint
+            const response = await fetch('https://spex.onrender.com/api/feedback', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
