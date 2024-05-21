@@ -88,22 +88,24 @@ export const login = async (req, res) => {
 
 
 export const users = async (req, res) => {
-    const userId = req.params.id; // Assuming the user ID is passed as a parameter in the request URL
+    const { token } = req.cookies;
+
+    if (!token) {
+        return res.status(401).json({ error: "No token provided" });
+    }
 
     try {
-        // Find the user by ID
-        const user = await UserModel.findById(userId);
+        jwt.verify(token, process.env.SECRET_KEY, async (err, decoded) => {
+            if (err) {
+                return res.status(401).json({ error: "Invalid token" });
+            }
 
-        if (!user) {
-            return res.status(404).json({ error: "User not found" });
-        }
+            const user = await UserModel.findById(decoded.id).select('-password');
+            if (!user) {
+                return res.status(404).json({ error: "User not found" });
+            }
 
-        // Return user data
-        res.json({
-            name: user.name,
-            username: user.username,
-            email: user.email,
-            role: user.role
+            res.json(user);
         });
     } catch (error) {
         res.status(500).json({ error: error.message });

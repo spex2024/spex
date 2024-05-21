@@ -15,16 +15,16 @@ const UserProvider = ({ children }) => {
             });
 
             if (!response.ok) {
-                throw new Error('Failed to fetch user data');
+                const errorData = await response.json();
+                throw new Error(errorData.error || 'Failed to fetch user data');
             }
-            console.log(response)
+
             const data = await response.json();
             setUserData(data);
             setError(null);
-
         } catch (error) {
             console.error('Error fetching user data:', error);
-            setError('Failed to fetch user data'); // Update error state with a generic message
+            setError(error.message);
         }
     };
 
