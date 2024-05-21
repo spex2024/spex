@@ -10,19 +10,14 @@ const UserProvider = ({ children }) => {
 
     const fetchUserData = async () => {
         try {
-            const response = await fetch('https://spex-api.onrender.com/api/user', {
-                method: 'GET',
-                credentials: 'include',  // Ensure cookies are included in the request
-                headers: {
-                    'Content-Type': 'application/json',
-                    // Add other headers if necessary
-                }
+            const response = await fetch(`https://spex-api.onrender.com/api/user`, {
+                credentials: 'include',
             });
 
             if (!response.ok) {
                 throw new Error('Failed to fetch user data');
             }
-            console.log(response);
+            console.log(response)
             const data = await response.json();
             setUserData(data);
             setError(null);
