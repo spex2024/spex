@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext} from 'react';
 import Logout from "../component/Logout.jsx";
 import Feedback from "../component/Feedback.jsx";
 import {UserContext} from "../context/User.jsx";
@@ -7,7 +7,7 @@ import {FeedbackContext} from "../context/Feedback.jsx";
 import {Link} from "react-router-dom";
 import {AiFillFileExcel} from "react-icons/ai";
 
-function Dashboard(props) {
+function Dashboard() {
     const {userData}= useContext(UserContext)
     const { feedbackData } = useContext(FeedbackContext);
     const downloadCSV = () => {
@@ -21,7 +21,7 @@ function Dashboard(props) {
         document.body.appendChild(link);
         link.click();
     };
-  const {username , role} = userData;
+  const {username} = userData;
 
 
 
